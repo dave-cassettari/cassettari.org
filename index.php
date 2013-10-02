@@ -43,21 +43,21 @@ $background = randomFile();
 	<ul class='projects'>
 		<li class='is-selected'>
 			<a href='http://www.102labs.com/'>
-				<img src='images/projects/102.png' alt='102labs'/>
+				<img src='images/projects/102.jpg' alt='102labs'/>
 
 				<span>102labs</span>
 			</a>
 		</li>
 		<li>
 			<a href='https://www.db.com/index_e.htm'>
-				<img src='images/projects/db.png' alt=' '/>
+				<img src='images/projects/db.jpg' alt=' '/>
 
 				<span>Deutsche Bank</span>
 			</a>
 		</li>
 		<li>
 			<a href='https://www.investinme.com/'>
-				<img src='images/projects/iim.png' alt=' '/>
+				<img src='images/projects/iim.jpg' alt=' '/>
 
 				<span>Invest In Me</span>
 			</a>
