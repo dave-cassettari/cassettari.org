@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    var $next = $('.nav-next'),
+    var $body = $('body'),
+        $next = $('.nav-next'),
         $prev = $('.nav-prev'),
         $carousel = $('.projects'),
         $items = $carousel.children('li'),
@@ -11,6 +12,7 @@ $(document).ready(function () {
     var scroll = function (items) {
         var left = parseInt($carousel.css('left')) + (-items * width),
             $selected = $items.filter('.is-selected'),
+            backgroundLeft,
             i;
 
         if (left < min) {
@@ -25,6 +27,17 @@ $(document).ready(function () {
             'left': left,
             'margin-left': 0
         });
+
+        if (left == 0)
+        {
+            backgroundLeft = 0;
+        }
+        else
+        {
+            backgroundLeft = (left / min) * 100;
+        }
+
+        $body.css('background-position', backgroundLeft + '% center');
 
         if (left == 0) {
             $selected = $items.first();

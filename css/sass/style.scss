@@ -2,6 +2,9 @@
 
 $content-w: 30em;
 $content-h: 32em;
+$animation-speed-carousel : 1s;
+$animation-speed-preview : ($animation-speed-carousel / 4);
+$animation-speed-link : $animation-speed-preview;
 
 @mixin clearfix() {
   display: inline-block;
@@ -46,7 +49,7 @@ body
   width: 100%;
   height: 100%;
 
-  background: url('/images/backgrounds/la2.jpg') no-repeat center center fixed;
+  background: url('/images/backgrounds/la2.jpg') no-repeat 0 center fixed;
   background-size: 110% auto;
 
   font-size: 12pt;
@@ -54,6 +57,8 @@ body
   font-weight: 300;
 
   overflow: hidden;
+
+  @include transition(background-position, $animation-speed-carousel);
 }
 
 .content
@@ -90,7 +95,7 @@ h1
   left: 0;
 
   @include clearfix();
-  @include transition(left 1s, margin-left 0.25s ease-out);
+  @include transition(left $animation-speed-carousel, margin-left $animation-speed-preview ease-out);
 
   li
   {
@@ -106,11 +111,31 @@ h1
 
 	float: left;
 
-	@include transition(opacity 1s);
+	@include transition(opacity $animation-speed-carousel);
 
 	&.is-selected
 	{
 	  opacity: 1;
+	}
+
+	a
+	{
+	  color: #fff;
+	  text-decoration: none;
+
+	  @include transition(color $animation-speed-link);
+
+	  &:hover
+	  {
+		color: #ddd;
+		text-decoration: none;
+
+		img
+		{
+		  border-color: #333;
+		  border-color: rgba(#333, 0.5);
+		}
+	  }
 	}
 
 	img
@@ -118,12 +143,13 @@ h1
 	  width: 400px;
 	  height: 325px;
 
+	  border: 0.5em solid #333;
 	  border: 0.5em solid rgba(#333, 0.25);
 
-	  opacity: 0.75;
+	  @include transition(border-color $animation-speed-link);
 	}
 
-	h2
+	span
 	{
 	  margin: 0;
 	  padding: 1em 0 0;
@@ -131,18 +157,6 @@ h1
 	  font-size: 175%;
 	  font-weight: 300;
 	  text-shadow: 0 0 0.5em #000;
-
-	  a
-	  {
-		color: #fff;
-		text-decoration: none;
-
-		&:hover
-		{
-		  color: #ccc;
-		  text-decoration: none;
-		}
-	  }
 	}
   }
 }
