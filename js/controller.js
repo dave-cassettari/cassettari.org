@@ -9,11 +9,14 @@ $(document).ready(function () {
         min = -max + width,
         margin = 10;
 
-    var scroll = function (items) {
-        var left = parseInt($carousel.css('left')) + (-items * width),
-            $selected = $items.filter('.is-selected'),
+    var scroll = function (event, items) {
+        var $selected = $items.filter('.is-selected'),
+            left = -$selected.position().left + (-items * width),
             backgroundLeft,
             i;
+
+        event.preventDefault();
+        event.stopPropagation();
 
         if (left < min) {
             left = 0;
@@ -28,12 +31,10 @@ $(document).ready(function () {
             'margin-left': 0
         });
 
-        if (left == 0)
-        {
+        if (left == 0) {
             backgroundLeft = 0;
         }
-        else
-        {
+        else {
             backgroundLeft = (left / min) * 100;
         }
 
@@ -57,26 +58,20 @@ $(document).ready(function () {
         }
 
         $selected.addClass('is-selected').siblings().removeClass('is-selected');
+
+        return false;
     };
 
-    $next.click(function (e) {
-        e.preventDefault();
-
-        scroll(1);
-
-        return false;
+    $next.click(function (event) {
+        return scroll(event, 1);
     });
 
-    $prev.click(function (e) {
-        e.preventDefault();
-
-        scroll(-1);
-
-        return false;
+    $prev.click(function (event) {
+        return scroll(event, -1);
     });
 
     $next.mouseenter(function () {
-        $carousel.css('margin-left', margin);
+        $carousel.css('margin-left', -margin);
     });
 
     $next.mouseleave(function () {
@@ -84,10 +79,22 @@ $(document).ready(function () {
     });
 
     $prev.mouseenter(function () {
-        $carousel.css('margin-left', -margin);
+        $carousel.css('margin-left', margin);
     });
 
     $prev.mouseleave(function () {
         $carousel.css('margin-left', 0);
+    });
+
+    $next.on('touchstart', function (event) {
+        $next.click();
+
+        return false;
+    });
+
+    $prev.on('touchstart', function (event) {
+        $prev.click();
+
+        return false;
     });
 });
