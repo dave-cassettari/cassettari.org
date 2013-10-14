@@ -23,47 +23,50 @@ $background = randomFile();
 <head>
 	<meta charset='utf-8'>
 	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
 
 	<title>cassettari.org</title>
 
 	<meta name='description' content=''>
-	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='viewport'
+	      content='width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'>
 
 	<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300'/>
 	<link rel='stylesheet' type='text/css' href='css/compiled/style.css'/>
 </head>
-<body style='background-image: url("<?php echo '/' . $background; ?>");'>
+<body style='background-image: url('<?php echo '/' . $background; ?>');'>
 
-<div class='content'>
-	<h1>cassettari.org</h1>
+<h1>cassettari.org</h1>
+
+<div class='slideshow'>
 
 	<a class='nav-prev' href=''>&laquo;</a>
 	<a class='nav-next' href=''>&raquo;</a>
 
 	<ul class='projects'>
-		<li class='is-selected'>
-			<a href='http://www.102labs.com/'>
-				<img src='images/projects/102.jpg' alt='102labs'/>
-
-				<span>102labs</span>
-			</a>
-		</li>
 		<li>
-			<a href='https://www.db.com/index_e.htm'>
+			<a target='_blank' href='https://www.db.com/index_e.htm'>
 				<img src='images/projects/db.jpg' alt=' '/>
-
-				<span>Deutsche Bank</span>
+			</a>
+		</li>
+		<li class='is-selected'>
+			<a target='_blank' href='http://www.102labs.com/'>
+				<img src='images/projects/102.jpg' alt='102labs'/>
 			</a>
 		</li>
 		<li>
-			<a href='https://www.investinme.com/'>
+			<a target='_blank' href='https://www.investinme.com/'>
 				<img src='images/projects/iim.jpg' alt=' '/>
-
-				<span>Invest In Me</span>
 			</a>
 		</li>
 	</ul>
 </div>
+
+<nav>
+	<a href='https://www.db.com/index_e.htm'>Deutsche Bank</a>
+	<a class='is-selected' href='http://www.102labs.com/'>102labs</a>
+	<a href='https://www.investinme.com/'>Invest In Me</a>
+</nav>
 
 <script src='/js/jquery.js'></script>
 <script src='/js/controller.js'></script>

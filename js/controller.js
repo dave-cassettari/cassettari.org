@@ -1,8 +1,10 @@
 $(document).ready(function () {
-    var $body = $('body'),
+    var CLASS_SELECTED = 'is-selected',
+        $body = $('body'),
         $next = $('.nav-next'),
         $prev = $('.nav-prev'),
         $carousel = $('.projects'),
+        $links = $('nav a'),
         $items = $carousel.children('li'),
         max = $carousel.outerWidth(),
         width = $items.outerWidth(),
@@ -10,8 +12,9 @@ $(document).ready(function () {
         margin = 10;
 
     var scroll = function (event, items) {
-        var $selected = $items.filter('.is-selected'),
-            left = -$selected.position().left + (-items * width),
+        var $link = $links.filter('.' + CLASS_SELECTED),
+            $item = $items.filter('.' + CLASS_SELECTED),
+            left = -$item.position().left + (-items * width),
             backgroundLeft,
             i;
 
@@ -41,26 +44,42 @@ $(document).ready(function () {
         $body.css('background-position', backgroundLeft + '% center');
 
         if (left == 0) {
-            $selected = $items.first();
+            $link = $links.first();
+            $item = $items.first();
         }
         else if (left == min) {
-            $selected = $items.last();
+            $link = $links.last();
+            $item = $items.last();
         }
         else {
             for (i = 0; i < items; i++) {
-
-                $selected = $selected.next();
+                $link = $link.next();
+                $item = $item.next();
             }
 
             for (i = items; i < 0; i++) {
-                $selected = $selected.prev();
+                $link = $link.prev();
+                $item = $item.prev();
             }
         }
 
-        $selected.addClass('is-selected').siblings().removeClass('is-selected');
+        $link.addClass(CLASS_SELECTED).siblings().removeClass(CLASS_SELECTED);
+        $item.addClass(CLASS_SELECTED).siblings().removeClass(CLASS_SELECTED);
 
         return false;
     };
+
+    var scrollTo = function(event, target) {
+        var current = $links.filter('.' + CLASS_SELECTED).index();
+
+        return scroll(event, target - current);
+    };
+
+    $links.click(function(event) {
+        event.preventDefault();
+
+        return scrollTo(event, $(this).index());
+    });
 
     $next.click(function (event) {
         return scroll(event, 1);
