@@ -22,8 +22,7 @@ $background = randomFile();
 <html class='no-js'> <!--<![endif]-->
 <head>
 	<meta charset='utf-8'>
-	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
-	<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 
 	<title>cassettari.org</title>
 
@@ -34,7 +33,7 @@ $background = randomFile();
 	<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300'/>
 	<link rel='stylesheet' type='text/css' href='css/compiled/style.css'/>
 </head>
-<body style='background-image: url('<?php echo '/' . $background; ?>');'>
+<body style='background-image: url("<?php echo '/' . $background; ?>");'>
 
 <h1>cassettari.org</h1>
 

@@ -85,16 +85,17 @@ body
 h1
 {
   margin: 0;
-  padding: 1em;
+  padding: 0.9em 1em 1.1em;
 
   background: #000;
   background: rgba(#000, 0.25);
 
   color: #fff;
-  color: rgba(#fff, 0.75);
   font-size: 200%;
   font-weight: 300;
   text-align: center;
+  text-shadow: 0 1px 0 #000;
+  text-shadow: 0 1px 0 rgba(#000, 0.25);
 }
 
 nav
@@ -120,8 +121,12 @@ nav
 	font-size: 150%;
 	font-weight: 300;
 	text-decoration: none;
+	text-shadow: 0 1px 0 #000;
+	text-shadow: 0 1px 0 rgba(#000, 0.25);
 
 	display: inline-block;
+
+	@include transition(color, $animation-speed-carousel);
 
 	&:hover,
 	&.is-selected

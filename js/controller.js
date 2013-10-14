@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    'use strict';
+
     var CLASS_SELECTED = 'is-selected',
         $body = $('body'),
         $next = $('.nav-next'),
@@ -11,7 +13,7 @@ $(document).ready(function () {
         min = -max + width,
         margin = 10;
 
-    var scroll = function (event, items) {
+    function scroll(event, items) {
         var $link = $links.filter('.' + CLASS_SELECTED),
             $item = $items.filter('.' + CLASS_SELECTED),
             left = -$item.position().left + (-items * width),
@@ -34,30 +36,27 @@ $(document).ready(function () {
             'margin-left': 0
         });
 
-        if (left == 0) {
+        if (left === 0) {
             backgroundLeft = 0;
-        }
-        else {
+        } else {
             backgroundLeft = (left / min) * 100;
         }
 
         $body.css('background-position', backgroundLeft + '% center');
 
-        if (left == 0) {
+        if (left === 0) {
             $link = $links.first();
             $item = $items.first();
-        }
-        else if (left == min) {
+        } else if (left === min) {
             $link = $links.last();
             $item = $items.last();
-        }
-        else {
-            for (i = 0; i < items; i++) {
+        } else {
+            for (i = 0; i < items; i += 1) {
                 $link = $link.next();
                 $item = $item.next();
             }
 
-            for (i = items; i < 0; i++) {
+            for (i = items; i < 0; i += 1) {
                 $link = $link.prev();
                 $item = $item.prev();
             }
@@ -67,15 +66,27 @@ $(document).ready(function () {
         $item.addClass(CLASS_SELECTED).siblings().removeClass(CLASS_SELECTED);
 
         return false;
-    };
+    }
 
-    var scrollTo = function(event, target) {
+    function scrollTo(event, target) {
         var current = $links.filter('.' + CLASS_SELECTED).index();
 
         return scroll(event, target - current);
-    };
+    }
 
-    $links.click(function(event) {
+    $items.children('a').click(function (event) {
+        var $item = $(this).parent();
+
+        if ($item.hasClass(CLASS_SELECTED)) {
+            return true;
+        }
+
+        event.preventDefault();
+
+        return scrollTo(event, $item.index());
+    });
+
+    $links.click(function (event) {
         event.preventDefault();
 
         return scrollTo(event, $(this).index());
@@ -103,17 +114,5 @@ $(document).ready(function () {
 
     $prev.mouseleave(function () {
         $carousel.css('margin-left', 0);
-    });
-
-    $next.on('touchstart', function (event) {
-        $next.click();
-
-        return false;
-    });
-
-    $prev.on('touchstart', function (event) {
-        $prev.click();
-
-        return false;
     });
 });
