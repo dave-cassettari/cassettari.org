@@ -33,7 +33,9 @@ $background = randomFile();
 	<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300'/>
 	<link rel='stylesheet' type='text/css' href='css/compiled/style.css'/>
 </head>
-<body style='background-image: url("<?php echo '/' . $background; ?>");'>
+<body>
+
+<div class='background' style='background-image: url("<?php echo '/' . $background; ?>");'></div>
 
 <h1>cassettari.org</h1>
 
