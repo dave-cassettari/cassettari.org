@@ -34,6 +34,9 @@
 }
 
 $link-colour: #4ba38f;
+$project-image-size: 100px;
+$project-image-border: 5px;
+$project-link-offset: ($project-image-size / 2) + $project-image-border;
 
 html
 {
@@ -78,13 +81,9 @@ a
 
 .projects
 {
-  $project-image-size: 100px;
-  $project-image-border: 5px;
-  $project-link-offset: ($project-image-size / 2) + $project-image-border;
-
-  max-width: 80em;
+  max-width: 70em;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 0 2em;
 
   list-style: none;
 
@@ -172,7 +171,7 @@ a
 .stack
 {
   width: 25em;
-  padding: 0.5em 3em 0;
+  padding: $project-image-border 3em;
 
   color: #666;
   font-size: 110%;

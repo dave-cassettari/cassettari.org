@@ -8,8 +8,10 @@
 
 	<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
 
-	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:300'/>
-	<link rel='stylesheet' type='text/css' href='/css/compiled/style.css'/>
+	<link type='text/css' rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans:300'/>
+	<link type='text/css' rel='stylesheet' href='/css/compiled/style.css'/>
+	<link type='image/x-icon' rel='shortcut icon' href='/favicon.ico'/>
+	<link type='image/x-icon' rel='icon' href='/favicon.ico'/>
 </head>
 <body>
 
@@ -61,7 +63,7 @@
 			<span class='stack-database'>PostgreSQL</span>
 		</div>
 
-		<a class='project-link' target='_blank' href='http://www.aviationlist.co.uk'>
+		<a class='project-link' target='_blank' href='https://www.aviationlist.co.uk'>
 			<img class='project-image' src='/images/projects/rfp.jpg'/>
 			<span class='project-name'>Aviation List</span>
 		</a>
