@@ -22,16 +22,32 @@
   transition: $values;
 }
 
+@mixin perspective($value: 1000) {
+  -webkit-perspective: $value;
+  perspective: $value;
+}
+
+@mixin transform-style($value: preserve-3d) {
+  -webkit-transform-style: $value;
+  transform-style: $value;
+}
+
+@mixin transform($values...) {
+  -webkit-transform: $values;
+  -ms-transform: $values;
+  transform: $values;
+}
+
+@mixin backface-visibility($value: hidden) {
+  -webkit-backface-visibility: $value;
+  -moz-backface-visibility: $value;
+  -ms-backface-visibility: $value;
+  backface-visibility: $value;
+}
+
 $columns: (6, 5, 4, 3, 2, 1);
 $tile-size: 200px;
 $tiles-border: 2px;
-
-8
-{
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
 
 html
 {
@@ -69,7 +85,7 @@ body
 
   text-align: center;
 
-  overflow: hidden;
+  @include perspective();
 
   @include clear-fix();
 
@@ -89,13 +105,13 @@ body
 
 	opacity: 1;
 	display: block;
-	overflow: hidden;
 
 	position: relative;
 
 	float: left;
 
-	@include transition(opacity 0.5s);
+	@include transform-style();
+	@include transition(all 0s);
 
 	&:hover
 	{
@@ -103,6 +119,12 @@ body
 	  {
 		opacity: 1;
 	  }
+	}
+
+	&.is-flipping
+	{
+	  @include transition(all 0.5s);
+	  @include transform(rotateY(180deg));
 	}
 
 	&.is-loading
@@ -130,6 +152,26 @@ body
 	  bottom: 0;
 
 	  @include transition(opacity 0.15s);
+	}
+
+	a
+	{
+	  width: 100%;
+	  height: 100%;
+
+	  display: block;
+	  z-index: 2;
+
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+
+	  @include backface-visibility();
+
+	  &.is-flipped
+	  {
+		@include transform(rotateY(180deg));
+	  }
 	}
 
 	img
