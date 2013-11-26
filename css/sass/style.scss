@@ -34,9 +34,11 @@
 }
 
 $link-colour: #4ba38f;
+$project-name-width: 300px;
 $project-image-size: 100px;
-$project-image-border: 5px;
-$project-link-offset: ($project-image-size / 2) + $project-image-border;
+$project-image-margin: 35px;
+$stack-width: $project-name-width;
+$page-width-min: $project-name-width + $stack-width + $project-image-size + 2 * $project-image-margin + 30;
 
 html
 {
@@ -68,7 +70,7 @@ a
 .title
 {
   margin: 0;
-  padding: 1em 0;
+  padding: 0.9em 0 1.1em;
 
   border-bottom: 1px solid #fff;
   background: #202020 url('/images/background-dark.png');
@@ -81,69 +83,49 @@ a
 
 .projects
 {
-  max-width: 70em;
+  //  max-width: 70em;
   margin: 0 auto;
   padding: 0 0 2em;
 
   list-style: none;
 
-  @include clear-fix();
-
   .project
   {
-	width: 50%;
 	margin: 3em 0 1em;
 	padding: 0;
 
 	list-style: none;
 
-	text-align: right;
-
-	float: left;
-	clear: both;
-
-	position: relative;
-	left: $project-link-offset;
-
-	&.is-alternate
-	{
-	  text-align: left;
-
-	  float: right;
-
-	  left: -$project-link-offset;
-
-	  .project-image
-	  {
-		margin-left: 0;
-		margin-right: 3em;
-
-		float: left;
-	  }
-	}
+	text-align: center;
 
 	.project-link
 	{
-	  display: block;
+	  display: inline-block;
 
 	  &:hover
 	  {
+		text-decoration: none;
+
 		.project-name
 		{
 		  color: $link-colour;
+		  text-decoration: none;
 		}
 
 		.project-image
 		{
-		  box-shadow: 0em 0.25em 0.5em $link-colour;
+		  box-shadow: 0 0 0 5px #fff, 0em 0.25em 1em $link-colour;
 		}
 	  }
 	}
 
 	.project-name
 	{
+	  width: $project-name-width;
+
 	  color: #666;
 	  font-size: 175%;
+	  text-align: right;
 	  text-shadow: 0 1px 0 #fff;
 	  line-height: $project-image-size;
 
@@ -154,14 +136,12 @@ a
 	{
 	  width: $project-image-size;
 	  height: $project-image-size;
-	  margin: 0 0 0 3em;
+	  margin: 0 $project-image-margin;
 
-	  border: $project-image-border solid #fff;
-	  box-shadow: 0em 0.25em 0.5em #ddd;
+	  box-shadow: 0 0 0 5px #fff, 0em 0.25em 0.5em #ddd;
 
-	  display: block;
-
-	  float: right;
+	  display: inline-block;
+	  vertical-align: middle;
 
 	  @include border-radius($project-image-size);
 	}
@@ -170,15 +150,15 @@ a
 
 .stack
 {
-  width: 25em;
-  padding: $project-image-border 3em;
+  width: $stack-width;
+  padding: 5px 0;
 
   color: #666;
   font-size: 110%;
   text-align: left;
 
-  position: absolute;
-  left: 100%;
+  display: inline-block;
+  vertical-align: middle;
 
   &.is-alternate
   {
@@ -211,6 +191,8 @@ a
 	padding: 0 2em;
 
 	background: left center no-repeat;
+
+	white-space: nowrap;
 
 	display: block;
   }
@@ -270,5 +252,41 @@ a
 	{
 	  height: 100%;
 	}
+  }
+}
+
+@media all and (max-width: $page-width-min) {
+
+  .projects
+  {
+	.project
+	{
+	  .project-link
+	  {
+		display: block;
+	  }
+
+	  .project-name
+	  {
+		width: auto;
+
+		text-align: center;
+		line-height: 1;
+
+		display: block;
+	  }
+
+	  .project-image
+	  {
+		margin: 15px auto;
+
+		display: block;
+	  }
+	}
+  }
+
+  .stack
+  {
+	width: 150px;
   }
 }

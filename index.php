@@ -19,6 +19,11 @@
 
 <ul class='projects'>
 	<li class='project'>
+		<a class='project-link' target='_blank' href='http://www.102labs.com/'>
+			<span class='project-name'>102labs</span>
+			<img class='project-image' src='/images/projects/102.jpg'/>
+		</a>
+
 		<div class='stack'>
 			<div class='progress'>
 				<div class='progress-complete progress-complete-full'></div>
@@ -28,14 +33,14 @@
 			<span class='stack-server'>C# ASP.NET MVC</span>
 			<span class='stack-database'>Hadoop + HBase</span>
 		</div>
-
-		<a class='project-link' target='_blank' href='http://www.102labs.com/'>
-			<img class='project-image' src='/images/projects/102.jpg'/>
-			<span class='project-name'>102labs</span>
-		</a>
 	</li>
 
 	<li class='project'>
+		<a class='project-link' target='_blank' href='https://www.investinme.co.uk/'>
+			<span class='project-name'>Invest In Me</span>
+			<img class='project-image' src='/images/projects/iim.jpg'/>
+		</a>
+
 		<div class='stack'>
 			<div class='progress'>
 				<div class='progress-complete progress-complete-full'></div>
@@ -45,14 +50,14 @@
 			<span class='stack-server'>PHP + Yii</span>
 			<span class='stack-database'>MySQL</span>
 		</div>
-
-		<a class='project-link' target='_blank' href='https://www.investinme.co.uk/'>
-			<img class='project-image' src='/images/projects/iim.jpg'/>
-			<span class='project-name'>Invest In Me</span>
-		</a>
 	</li>
 
 	<li class='project'>
+		<a class='project-link' target='_blank' href='https://www.aviationlist.co.uk'>
+			<span class='project-name'>Aviation List</span>
+			<img class='project-image' src='/images/projects/rfp.jpg'/>
+		</a>
+
 		<div class='stack'>
 			<div class='progress'>
 				<div class='progress-complete progress-complete-full'></div>
@@ -62,14 +67,14 @@
 			<span class='stack-server'>PHP + Yii</span>
 			<span class='stack-database'>PostgreSQL</span>
 		</div>
-
-		<a class='project-link' target='_blank' href='https://www.aviationlist.co.uk'>
-			<img class='project-image' src='/images/projects/rfp.jpg'/>
-			<span class='project-name'>Aviation List</span>
-		</a>
 	</li>
 
 	<li class='project'>
+		<a class='project-link' target='_blank' href='http://www.geoinformationgroup.co.uk/'>
+			<span class='project-name'>The GeoInformation Group</span>
+			<img class='project-image' src='/images/projects/tgg.jpg'/>
+		</a>
+
 		<div class='stack'>
 			<div class='progress'>
 				<div class='progress-complete progress-complete-half'></div>
@@ -79,11 +84,6 @@
 			<span class='stack-server'>PHP + Concrete5</span>
 			<span class='stack-database'>MySQL</span>
 		</div>
-
-		<a class='project-link' target='_blank' href='http://www.geoinformationgroup.co.uk/'>
-			<img class='project-image' src='/images/projects/tgg.jpg'/>
-			<span class='project-name'>The GeoInformation Group</span>
-		</a>
 	</li>
 </ul>
 
